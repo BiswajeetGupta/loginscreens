@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:loginscreens/repo/apiCalls.dart';
+import 'package:loginscreens/screens/login.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -161,20 +162,31 @@ class _SignUpScreenState extends State<SignUpScreen> {
               SizedBox(
                 height: MediaQuery.of(context).size.height * .20,
               ),
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    " Already have an account?",
-                    style: TextStyle(
-                      fontSize: 12,
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const LoginScreen(),
                     ),
-                  ),
-                  Text(
-                    "Login",
-                    style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
-                  ),
-                ],
+                  );
+                },
+                child: const Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      " Already have an account?",
+                      style: TextStyle(
+                        fontSize: 12,
+                      ),
+                    ),
+                    Text(
+                      "Login",
+                      style:
+                          TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
               )
             ],
           ),
